@@ -23,9 +23,9 @@ app.add_template_filter(myreversehashing)
 conn = sqlite3.connect('password_guy.db', check_same_thread=False)
 
 # create tables in database
-conn.execute("CREATE TABLE [IF NOT EXISTS] credentials ( user_id INTEGER AUTOINCREMENT PRIMARY KEY, username TEXT NOT NULL, password_hash TEXT NOT NULL)")
+conn.execute("CREATE TABLE IF NOT EXISTS credentials ( user_id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL, password_hash TEXT NOT NULL)")
 conn.commit()
-conn.execute("CREATE TABLE [IF NOT EXISTS] records ( record_id INTEGER AUTOINCREMENT PRIMARY KEY, user_id TEXT NOT NULL, website TEXT NOT NULL, web_username TEXT NOT NULL, web_pass_hash TEXT NOT NULL FOREIGN KEY (user_id) REFERENCES (credentials.user_id))")
+conn.execute("CREATE TABLE IF NOT EXISTS records ( record_id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, website TEXT NOT NULL, web_username TEXT NOT NULL, web_pass_hash TEXT NOT NULL, FOREIGN KEY (user_id) REFERENCES credentials(user_id))")
 conn.commit()
 
 @app.after_request

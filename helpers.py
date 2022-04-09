@@ -45,5 +45,5 @@ def myreversehashing(hpassw2):
             index = searching(codelist, chr(ord(hpassw2[i]) + 32))
             passw2 += chr(65+ index)
         else:
-            passw2 += hpassw2
+            passw2 += hpassw2[i]
     return passw2

@@ -5,12 +5,13 @@
 {% endblock %}
 
 {% block main %}
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Website</th>
                 <th>Username</th>
                 <th>Password</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,10 @@
                 <td>{{ item[2] }}</td>
                 <td>{{ item[3] }}</td>
                 <td>{{ item[4] | myreversehashing}}</td>
+                <td><form action="/delete" method="post">
+                    <input type="text" value="{{ item[0] }}" name="recordid" hidden>
+                    <input type="submit" value="Delete" class="btn btn-primary">
+                </form></td>
             </tr>
             {% endfor %}
         </tbody>

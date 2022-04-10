@@ -153,3 +153,9 @@ def add_password():
         conn.execute("INSERT INTO records (user_id, website, web_username, web_pass_hash) VALUES (?, ?, ?, ?)", (session["user_id"], request.form.get("website"), request.form.get("website_username"), myhashing(request.form.get("website_password"))))
         conn.commit()
         return redirect("/")
+
+@app.route("/delete", methods=["POST"])
+def delete():
+    conn.execute("DELETE FROM records WHERE record_id = ?", (request.form.get("recordid"), ))
+    conn.commit()
+    return redirect("/")

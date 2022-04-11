@@ -2,7 +2,7 @@
 
 It is a web-based password manager application
 
-## Video demo : 
+## Video demo : https://youtu.be/iNvzLyZ2rB0
 
 ## Description
 

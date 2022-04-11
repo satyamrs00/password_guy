@@ -53,3 +53,7 @@ Most of css is used through bootstrap only.
 ## Extras
 
 Feedbacks and Suggestions are much appreciated.
+
+#### delete functionality
+I added the delete functionality later in this project.
+I added a button next to each password record, you can delete that password by clicking on that button.
